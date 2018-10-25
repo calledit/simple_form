@@ -8,17 +8,17 @@ function send_mail($entry){
 	$mail->Host = 'relay.gant.com';
 	$mail->Port = 25;
 	$mail->AddAddress($entry['email']);
-	$mail->setFrom('andrea.lejon@gant.com', 'Gant Sample Logistics');
+	$mail->setFrom('sample@email.com', 'Sample Logistics');
 
 
 	ob_start();
 	Array_Table(array($entry));
 	$out1 = ob_get_contents();
 	ob_end_clean();
-	$mail->MsgHTML("<h2>Thank you for buying items from GANT's internal sale</h2>: ".$out1);
+	$mail->MsgHTML("<h2>Thank you for buying items from company's internal sale</h2>: ".$out1);
 
 
-	$mail->Subject    = 'GANT\'s internal sale confirmation';
+	$mail->Subject    = 'company\'s internal sale confirmation';
 
 	if($mail->Send()){
 	}else{
@@ -46,29 +46,29 @@ $collumns = array(
 'WAREHOUSE PRODUCTS TIES' => 50,
 'WAREHOUSE PRODUCTS KIDS' => 100,
 */
-"0" => 'GANT INTERNAL SAMPLES',
-"GANT INTERNAL SAMPLES LEATHER JACKETS" => 120,
-"GANT INTERNAL SAMPLES JACKETS" => 100,
-"GANT INTERNAL SAMPLES BLAZERS" => 100,
-"GANT INTERNAL SAMPLES PANTS/JEANS" => 50,
-"GANT INTERNAL SAMPLES DRESSES/SKIRTS" => 50,
-"GANT INTERNAL SAMPLES SHIRTS/BLOUSES" => 50,
-"GANT INTERNAL SAMPLES KNITWEAR" => 50,
-"GANT INTERNAL SAMPLES SHORTS" => 50,
-"GANT INTERNAL SAMPLES JERSEY (LONG SLEEVE)" => 50,
-"GANT INTERNAL SAMPLES JERSEY (SHORT SLEEVE)" => 30,
-"GANT INTERNAL SAMPLES ACC" => 20,
-"GANT INTERNAL SAMPLES BAGS" => 75,
-"GANT INTERNAL SAMPLES SWIMWEAR" => 50,
-"GANT INTERNAL SAMPLES UNDERWEAR" => 20,
-"GANT INTERNAL SAMPLES PYJAMAS" => "50",
-"GANT INTERNAL SAMPLES SOCKS" => 10,
-"GANT INTERNAL SAMPLES SHOES" => "300",
-"GANT INTERNAL SAMPLES WATCHES" => "50",
-'1' => 'KIDS GANT INTERNAL SAMPLES',
-"KIDS GANT INTERNAL SAMPLES CLOTHES" => 50,
-"KIDS GANT INTERNAL SAMPLES ACC" => 20,
-"KIDS GANT INTERNAL SAMPLES SOCKS" => 10,
+"0" => 'company INTERNAL SAMPLES',
+"company INTERNAL SAMPLES LEATHER JACKETS" => 120,
+"company INTERNAL SAMPLES JACKETS" => 100,
+"company INTERNAL SAMPLES BLAZERS" => 100,
+"company INTERNAL SAMPLES PANTS/JEANS" => 50,
+"company INTERNAL SAMPLES DRESSES/SKIRTS" => 50,
+"company INTERNAL SAMPLES SHIRTS/BLOUSES" => 50,
+"company INTERNAL SAMPLES KNITWEAR" => 50,
+"company INTERNAL SAMPLES SHORTS" => 50,
+"company INTERNAL SAMPLES JERSEY (LONG SLEEVE)" => 50,
+"company INTERNAL SAMPLES JERSEY (SHORT SLEEVE)" => 30,
+"company INTERNAL SAMPLES ACC" => 20,
+"company INTERNAL SAMPLES BAGS" => 75,
+"company INTERNAL SAMPLES SWIMWEAR" => 50,
+"company INTERNAL SAMPLES UNDERWEAR" => 20,
+"company INTERNAL SAMPLES PYJAMAS" => "50",
+"company INTERNAL SAMPLES SOCKS" => 10,
+"company INTERNAL SAMPLES SHOES" => "300",
+"company INTERNAL SAMPLES WATCHES" => "50",
+'1' => 'KIDS company INTERNAL SAMPLES',
+"KIDS company INTERNAL SAMPLES CLOTHES" => 50,
+"KIDS company INTERNAL SAMPLES ACC" => 20,
+"KIDS company INTERNAL SAMPLES SOCKS" => 10,
 /*
 '2' => 'OTHER BRANDS SAMPLES',
 "OTHER BRANDS SAMPLES LEATHER JACKETS" => 200,
@@ -91,10 +91,10 @@ $collumns = array(
 "KIDS OTHER BRANDS SAMPELS ACC" => 20,
 "KIDS OTHER BRANDS SAMPELS SOCKS" => 10,
 */
-'9' => 'GANT PROPS',
-"GANT PROPS SMALL" => "20",
-"GANT PROPS MEDIUM" => "50",
-"GANT PROPS LARGE" => "100",
+'9' => 'company PROPS',
+"company PROPS SMALL" => "20",
+"company PROPS MEDIUM" => "50",
+"company PROPS LARGE" => "100",
 );
 
 $home_collumns = array(
@@ -145,14 +145,14 @@ if(isset($_POST['entry'])){
 	<style>
 	
 	@font-face {
-		font-family: "GantModern";
+		font-family: "somefont";
 		font-style: normal;
 		font-weight: 700;
-		src: url("/assets/fonts/GantModern-Regular.ttf");
+		src: url("font-Regular.ttf");
 	}
 	body{
-		font-family: "GantModern";
-		background-image:url('GANT_FW18_SEASONAL_OCT2.jpg');
+		font-family: "somefont";
+		background-image:url('image.jpg');
 		/*background-image:url('sale_tool_bg.jpg');*/
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -208,8 +208,8 @@ if(isset($_POST['entry'])){
 						<input id="email" type="email" class="form-control" name="entry[email]">
 					</div>
 					<div class="row">
-						<div class="col-md-6 gant">
-							<h2>GANT</h2>
+						<div class="col-md-6 company">
+							<h2>company</h2>
 <?php
 $remove = "";
 foreach($collumns AS $column => $price){
@@ -258,7 +258,7 @@ $vis_col = substr($column, strlen($remove));
 								<input type="number" id="total" class="form-control" readonly name="entry[total_gant]">
 							</div>
 					</div>
-					<div class="alert alert-warning">Please note: All items are sold in existing condition. No claims can be made in GANT stores or to GANT Claims Department.
+					<div class="alert alert-warning">Please note: All items are sold in existing condition. No claims can be made in company stores or to company Claims Department.
 						<br>Make sure that all returns are made before submiting this form.</div>
 					<div class="text-center">
 					<button onclick="return validate();" type="submit" class="btn btn-success">send</button>

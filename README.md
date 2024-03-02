@@ -1,2 +1,2 @@
 # simple_form
-A simple easily modifiable web form, that sends and email and saves the result
+A simple easily modifiable web form, that sends an email and saves the result
